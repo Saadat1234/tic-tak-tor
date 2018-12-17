@@ -25,6 +25,10 @@ class Game extends Component {
     this.setState({
       history: history.concat([{
         squares: squares,
+        calc: {
+            row: i % 3,
+            col: Math.floor(i / 3)
+          }
       }]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
@@ -62,7 +66,7 @@ class Game extends Component {
       status = 'its a draw'
     }
     else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Next: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
