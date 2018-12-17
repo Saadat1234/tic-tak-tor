@@ -2,20 +2,17 @@ import React, { Component } from 'react';
 import Square from './Square';
 
 class Board extends Component {
-  renderSquare(i) {
+  render() {
+    const { squares, onClick } = this.props;
+
     return (
-      <Square
-        value={this.props.squares[i]}
-        onClick={() => this.props.onClick(i)}
-      />
+      <div className="board">
+        {squares.map((square, i) => (
+          <Square value={squares[i]} key={i} onClick={() => onClick(i)} />
+        ))}
+      </div>
     );
   }
-  render(){
-    return (
-    <div className="game-board">
-      {this.state.squares(3,3)}
-    </div>
-  );
-  }
 }
+
 export default Board;
